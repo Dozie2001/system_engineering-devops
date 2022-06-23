@@ -1,2 +1,2 @@
 #!/bin/bash
- chmod -R a+X 0-iam_betty 0-mirror_permiss 10-mirror_permissions 11-directories_permissions 12-directory_permissions 13-change_group 1-who_am_i 2-groups 3-new_owner 4-empty 5-execute 6-multiple_permissions 7-everybody 8-James_Bond 9-John_Doe README.md
+ chmod -R ugo+X 0-iam_betty 0-mirror_permiss 10-mirror_permissions 11-directories_permissions 12-directory_permissions 13-change_group 1-who_am_i 2-groups 3-new_owner 4-empty 5-execute 6-multiple_permissions 7-everybody 8-James_Bond 9-John_Doe README.md
