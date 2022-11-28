@@ -2,6 +2,6 @@
 #Prints 10 lines of "Best School"
 
 for i in $(seq 1 10); do
-         echo "Best school"
+         echo "Best School"
          i="$((i))"
 done
