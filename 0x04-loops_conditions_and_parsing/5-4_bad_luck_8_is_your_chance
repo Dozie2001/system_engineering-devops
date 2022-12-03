@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+# Using if-elif-else
 i="1"
 while [ "$i" -le 10 ]; do
          if [ "$i" -eq 4 ]; then
