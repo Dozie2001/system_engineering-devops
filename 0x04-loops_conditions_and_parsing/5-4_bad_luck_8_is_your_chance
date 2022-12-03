@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+i="1"
+while [ "$i" -le 10 ]; do
+         if [ "$i" -eq 4 ]; then
+               echo "Bad Luck"
+          elif [ "$i" -eq 8 ]; then
+                 echo "Good Luck"
+          else
+                echo "Best School"
+          fi;
+          i=$((i + 1))
+done;
