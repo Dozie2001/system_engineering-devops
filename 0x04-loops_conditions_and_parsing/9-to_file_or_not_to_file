@@ -12,7 +12,7 @@ if [ -e "$file" ]; then
      fi;
 
      if [ -f "$file" ]; then
-          echo "$file a regular file"
+          echo "$file is a regular file"
      fi;
 
 else
