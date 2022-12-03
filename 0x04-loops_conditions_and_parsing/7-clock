@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#Nested Loops
+
+i="0"
+
+while [ "$i" -le $((60 * 12 + 59)) ]; do
+        if  [ $((i % 60)) -eq 0 ]; then
+              echo "Hour: $((i / 60))"
+        else
+            echo "$((i % 60))"
+        fi;
+        i=$((i + 1))
+done;
