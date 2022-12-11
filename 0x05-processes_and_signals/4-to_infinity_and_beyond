@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Adding sleep to a bash Script
+
+i="1"
+while [ "$i" -eq 1 ]; do
+        echo "To infinity and beyond"
+        sleep 2
+done;
