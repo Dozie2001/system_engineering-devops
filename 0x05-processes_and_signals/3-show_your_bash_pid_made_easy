@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# A script that displays processes with the keyword 'bash'
+
+ps -u | grep bash
