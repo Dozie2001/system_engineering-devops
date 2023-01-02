@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#kill the terminal
+
+pkill -f 'highlander' --signal  SIGKILL
