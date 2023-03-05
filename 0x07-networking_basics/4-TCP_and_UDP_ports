@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+#Dislays all listening ports and PIDS
 netstat -lp
