@@ -1,12 +1,12 @@
-# Set server to not need password auth
+#configure ssh config
 
-file { 'Turn off passwd auth':
-  path => '/etc/ssh/ssh_config',
-  line => 'passwordAuthentication'
-
+file_line{'Turn off passwd auth':
+path => '/etc/ssh/ssh_config',
+line => 'PasswordAuthentication no'
 }
 
-file_line {'Declare identity file':
-  path => 'etc/ssh/ssh_config',
-  line => 'IdentityFile ~ssh/.ssh/school'
+file_line{'Declare identity file':
+path => '/etc/ssh/ssh_config',
+line => 'IdentityFile ~/.ssh/school'
+
 }
