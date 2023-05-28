@@ -1,7 +1,5 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 # Redirect Nginx server 
-
-
 
 STRING="Hello World!"
 REDIRECT="location /redirect_me {\n\treturn 301 https://youtu.be/dQw4w9WgXcQ;\n}"
