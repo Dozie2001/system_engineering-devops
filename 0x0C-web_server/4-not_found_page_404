@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+# Configure the Nginx server to have a custom 404 page
+
+STRING="Hello World!"
+REDIRECT="\n\tlocation /redirect_me {\n\t\treturn 301 https://youtu.be/dQw4w9WgXcQ;\n\t}\n"
+FILE="/etc/nginx/sites-available/default"
+
+ERRORFILE="/usr/share/nginx/html/404error.html"
+FOUR="Ceci n'est pas une page"
+ERRORREDIRECT="\n\terror_page 404 /404error.html;\n\tlocation = /404error.html {\n\t\troot /usr/share/nginx/html;\n\t\tinternal;\n\t}\n"
+
+# Update and install Nginx
+sudo apt-get -y update
+sudo apt-get -y install nginx
+
+# Allow Nginx through the firewall
+sudo ufw allow 'Nginx HTTP'
+
+# Write the index file
+echo "$STRING" | sudo tee /var/www/html/index.nginx-debian.html
+
+# Append the redirection configuration
+echo -e "$REDIRECT" | sudo tee -a "$FILE"
+
+# Create the custom error file
+echo "$FOUR" | sudo tee "$ERRORFILE"
+
+# Append the error redirection configuration
+echo -e "$ERRORREDIRECT" | sudo tee -a "$FILE"
+
+# Restart Nginx
+sudo service nginx restart
+
