@@ -1,14 +1,25 @@
-#!/usr/bin/env bash
+#!/bin/env bash
+# Redirect Nginx server 
 
-# Configure your Nginx server so that /redirect_me is redirecting to another page.
-# The redirection must be a “301 Moved Permanently”
+
+
 STRING="Hello World!"
-REDIRECT="\n\tlocation /redirect_me {\n\t\treturn 301 https://youtu.be/dQw4w9WgXcQ; \n\t}\n"
+REDIRECT="location /redirect_me {\n\treturn 301 https://youtu.be/dQw4w9WgXcQ;\n}"
 FILE="/etc/nginx/sites-available/default"
 
+# Step 1: Update package lists and install Nginx
 sudo apt-get -y update
 sudo apt-get -y install nginx
+
+# Step 2: Allow Nginx through firewall and set up default page
 sudo ufw allow 'Nginx HTTP'
-echo "$STRING" | sudo tee /var/www/html/index.nginx-debian.html > /dev/null
-sudo sed -i "37i\ $REDIRECT" "$FILE"
+echo "$STRING" | sudo tee /var/www/html/index.nginx-debian.html >/dev/null
+
+# Step 3: Remove existing 'location' blocks for /redirect_me
+sudo sed -i '/location \/redirect_me {/,/}/d' "$FILE"
+
+# Step 4: Add redirection block to Nginx configuration
+sudo sed -i "/^server {/a $REDIRECT" "$FILE"
+
+# Step 5: Restart Nginx
 sudo service nginx restart
