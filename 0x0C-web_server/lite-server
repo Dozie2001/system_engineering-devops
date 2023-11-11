@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+
+# Function to uninstall lite-server
+uninstall_lite_server() {
+    npm uninstall -g lite-server
+}
+
+# Function to install lite-server
+install_lite_server() {
+    npm install -g lite-server
+}
+
+# Function to add npm global bin directory to PATH
+add_to_path() {
+    # Check if the bin directory is in the PATH
+    if [[ ":$PATH:" != *":/Users/mac/.npm-global/bin:"* ]]; then
+        # Add it to the PATH
+        echo 'export PATH="/Users/mac/.npm-global/bin:$PATH"' >> ~/.bashrc
+        # Source the .bashrc to apply changes immediately
+        source ~/.bashrc
+    fi
+}
+
+# Main script
+echo "Uninstalling lite-server..."
+uninstall_lite_server
+
+echo "Installing lite-server..."
+install_lite_server
+
+echo "Checking PATH..."
+add_to_path
+
+echo "Lite-server installation and setup complete."
